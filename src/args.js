@@ -5,7 +5,7 @@ const runner = yargs
   .scriptName("unicode-gen")
   .usage("Usage: $0 -p [property-name] -o [output-file]")
   .example(
-    "$0 -u 14.0.0 -p ID_Start -o id_start.json",
+    "$0 -u 15.1.0 -p ID_Start -o id_start.json",
   )
   .option("property", {
     alias: "p",
@@ -18,7 +18,7 @@ const runner = yargs
     alias: "u",
     describe: "The unicode version",
     type: "string",
-    default: "14.0.0",
+    default: "15.1.0",
     nargs: 1,
   })
   .option("out", {
