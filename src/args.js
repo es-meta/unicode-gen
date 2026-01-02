@@ -1,5 +1,6 @@
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
+const { version } = require('./package.json');
 
 const runner = yargs
   .scriptName("unicode-gen")
@@ -28,7 +29,7 @@ const runner = yargs
     nargs: 1,
   })
   .alias("help", "h")
-  .version("1.0.0")
+  .version(version)
   .alias("version", "v")
   .wrap(80);
 
