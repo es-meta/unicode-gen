@@ -10,11 +10,11 @@
     "release": "npm run build && npm publish --access=public"
   },
   "bin": {
-    "unicode-gen": "./bin/unicode-gen.js"
+    "unicode-gen": "bin/unicode-gen.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/es-meta/es-meta.git"
+    "url": "git+https://github.com/es-meta/es-meta.git"
   },
   "keywords": [
     "unicode"
