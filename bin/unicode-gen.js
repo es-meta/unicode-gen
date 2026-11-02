@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-function onFatalError(error) {
+function onFatalError(error, origin) {
   process.exitCode = 2;
   const { version } = require("../package.json");
   console.error(`
 [unicode-gen v${version}] Something went wrong! :(
-${error}`);
+${error} ${origin}`);
 }
 
 (async () => {
