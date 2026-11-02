@@ -5,15 +5,15 @@ async function execute(args) {
   const { property, out, unicodeVersion } = getArgv(args);
 
   function read(property) {
-    let path = `@unicode/unicode-${unicodeVersion}/Binary_Property/${property}/code-points.js`;
+    let path = `@unicode/unicode-${unicodeVersion}/Binary_Property/${property}/code-points.mjs`;
     try {
       console.log(`Trying to load the unicode table from ${path}...`);
-      return require(path);
+      return require(path).default;
     } catch {
       console.error(`[ERROR] invalid package name`);
       process.exit(1);
     }
-  }
+  }	
 
   function compress(cps) {
     let result = [];

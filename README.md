@@ -14,7 +14,7 @@ Usage: unicode-gen -p [property-name] -o [output-file]
 Options:
   -h, --help             Show help                                     [boolean]
   -p, --property         The property name of Unicode                   [string]
-  -u, --unicode-version  The unicode version        [string] [default: "17.0.0"]
+  -u, --unicode-version  The unicode version        [string] [default: "18.0.0"]
   -o, --out              The output filename                            [string]
   -v, --version          Show version number                           [boolean]
 
