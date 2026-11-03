@@ -5,7 +5,7 @@ function onFatalError(error, origin) {
   const { version } = require("../package.json");
   console.error(`
 [unicode-gen v${version}] Something went wrong! :(
-${error} ${origin}`);
+${error}${origin ? ` (${origin})` : ""}`);
 }
 
 (async () => {

@@ -4,16 +4,19 @@ const getArgv = require("./args");
 async function execute(args) {
   const { property, out, unicodeVersion } = getArgv(args);
 
-  function read(property) {
+  async function read(property) {
     let path = `@unicode/unicode-${unicodeVersion}/Binary_Property/${property}/code-points.mjs`;
+    console.log(`Trying to load the unicode table from ${path}...`);
     try {
-      console.log(`Trying to load the unicode table from ${path}...`);
-      return require(path).default;
-    } catch {
-      console.error(`[ERROR] invalid package name`);
-      process.exit(1);
+      return (await import(path)).default;
+    } catch (e) {
+      if (e.code === "ERR_MODULE_NOT_FOUND") {
+        console.error(`[ERROR] invalid package name: ${path}`);
+        process.exit(1);
+      }
+      throw e;
     }
-  }	
+  }
 
   function compress(cps) {
     let result = [];
@@ -35,7 +38,7 @@ async function execute(args) {
     return result;
   }
 
-  const cps = read(property);
+  const cps = await read(property);
   const result = compress(cps);
   const json = JSON.stringify(result);
   fs.writeFileSync(out, json);
